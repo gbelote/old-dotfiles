@@ -477,7 +477,6 @@ This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
 dump."
 
-  ;; (require 'slack)
   )
 
 (defun dotspacemacs/user-config ()
@@ -495,29 +494,8 @@ before packages are loaded."
        (progn (forward-visible-line 0) (point))
        (progn (forward-visible-line 1) (point)))))
 
-  ;; (evil-define-key 'insert 'global "C-c k" 'normal-mode)
   (define-key evil-insert-state-map (kbd "C-c k") 'normal-mode)
   (define-key evil-insert-state-map (kbd "C-u") 'delete-current-line)
-
-  ;; (global-set-key (kbd "C-b l") 'evil-window-right)
-  ;; (global-set-key (kbd "C-b h") 'evil-window-left)
-
-  (use-package slack
-    :commands (slack-start)
-    :init
-    (setq slack-buffer-emojify t) ;; if you want to enable emoji, default nil
-    (setq slack-prefer-current-team t)
-    :config
-      (slack-register-team
-      :name "wefunder"
-      :default t
-      ;; :client-id "4806305733.706031011382"
-      ;; :client-secret "419d7fce3a787aa08edf87d63b7fc122"
-      ;; :token "xoxp-4806305733-4784987548-693779646802-31ddbcdc6ed8f7d28d01507efeff7842"
-      :token "xoxp-4806305733-4784987548-689583777778-a8e6ff4d1769d47cba25f092c088454d"
-      :subscribed-channels '(general)
-      )
-  )
 
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/notes.org" "Tasks")
